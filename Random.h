@@ -36,6 +36,8 @@ public:
     uint32_t rand();
 
     double rnd();
+
+    double randGaussian(double mean = 0, double sigma = 1);
 };
 
 

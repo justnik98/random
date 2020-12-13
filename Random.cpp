@@ -1,7 +1,7 @@
 //
 // Created by justnik on 13.12.2020.
 //
-
+#include <cmath>
 #include "Random.h"
 
 Random::Random() {
@@ -32,4 +32,26 @@ uint32_t Random::rand() {
 
 double Random::rnd() {
     return static_cast<double>(Random::rand()) / UINT32_MAX;
+}
+
+double Random::randGaussian(double mean, double sigma) {
+    static uint8_t ind = 0;
+    static double z[2];
+    if (ind) {
+        ind ^= 1;
+        return z[1] * sigma + mean;
+    }
+    double s = 0;
+    double x = 0;
+    double y = 0;
+    while (s == 0 || s > 1) {
+        x = rnd() * (-2) + 1;
+        y = rnd() * (-2) + 1;
+        s = x * x + y * y;
+    }
+    double val = sqrt((-2.0 * log(s) / s));
+    z[0] = x * val;
+    z[1] = y * val;
+    ind ^= 1;
+    return z[0] * sigma + mean;
 }

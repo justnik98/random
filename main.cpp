@@ -3,8 +3,8 @@
 
 int main() {
     Random r;
-    for (int i = 0; i < 1000; ++i) {
-        std::cout << r.rand() << std::endl;
-    }
+    std::cout << r.rand() << std::endl;
+    std::cout << r.rnd() << std::endl;
+    std::cout << r.randGaussian() << std::endl;
     return 0;
 }
