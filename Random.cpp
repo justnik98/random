@@ -55,3 +55,11 @@ double Random::randGaussian(double mean, double sigma) {
     ind ^= 1;
     return z[0] * sigma + mean;
 }
+
+double Random::randExp(double mean) {
+    double d;
+    do {
+        d = rnd();
+    } while (!d);
+    return -log(rnd()) / mean;
+}

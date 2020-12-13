@@ -38,6 +38,8 @@ public:
     double rnd();
 
     double randGaussian(double mean = 0, double sigma = 1);
+
+    double randExp(double mean);
 };
 
 
