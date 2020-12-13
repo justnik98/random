@@ -6,6 +6,6 @@ int main() {
     std::cout << r.rand() << std::endl;
     std::cout << r.rnd() << std::endl;
     std::cout << r.randGaussian() << std::endl;
-    std::cout << r.randGaussian() << std::endl;
+    std::cout << r.randExp() << std::endl;
     return 0;
 }
