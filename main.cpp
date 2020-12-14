@@ -6,6 +6,8 @@ int main() {
     double mean = 1;
     double sigma = 1;
     uint32_t k = 2;
+    double gamma = 1;
+    double x0 = 0;
     std::cout << r.rand() << std::endl;
     std::cout << r.rnd() << std::endl;
     std::cout << r.randGaussian() << std::endl;
@@ -13,5 +15,6 @@ int main() {
     std::cout << r.randExp(mean) << std::endl;
     std::cout << r.randChi2(k) << std::endl;
     std::cout << r.randLogistic(mean, sigma) << std::endl;
+    std::cout << r.randCauchy(x0, gamma) << std::endl;
     return 0;
 }

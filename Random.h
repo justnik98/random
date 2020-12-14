@@ -44,6 +44,8 @@ public:
     double randChi2(uint32_t k);
 
     double randLogistic(double mean, double sigma);
+
+    double randCauchy(double x0, double gamma);
 };
 
 

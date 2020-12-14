@@ -81,3 +81,12 @@ double Random::randLogistic(double mean, double sigma) {
     }
     return mean + sigma * log(1.0 / r - 1);
 }
+
+double Random::randCauchy(double x0, double gamma) {
+    double x, y;
+    do {
+        x = rnd() * (-2) + 1;
+        y = rnd() * (-2) + 1;
+    } while ((x * x + y * y) > 1.0 || !y);
+    return x0 + gamma * x / y;
+}
