@@ -6,6 +6,7 @@
 #define RANDOM_RANDOM_H
 
 #include <iostream>
+#include "utils.h"
 
 class Random {
 private:
@@ -40,6 +41,14 @@ public:
     double randGaussian(double mean = 0, double sigma = 1);
 
     double randExp(double mean);
+
+    double randChi2(uint32_t k);
+
+    double randLogistic(double mean, double sigma);
+
+    double randCauchy(double x0, double gamma);
+
+    double randStudentT(uint32_t k);
 };
 
 

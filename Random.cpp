@@ -63,3 +63,37 @@ double Random::randExp(double mean) {
     } while (!d);
     return -log(rnd()) / mean;
 }
+
+double Random::randChi2(uint32_t k) {
+    double res = 0;
+    double r;
+    for (size_t i = 0; i < k; ++i) {
+        r = randGaussian();
+        res += r * r;
+    }
+    return res;
+}
+
+double Random::randLogistic(double mean, double sigma) {
+    double r = rnd();
+    while (r == 1 || r == 0) {
+        r = rnd();
+    }
+    return mean + sigma * log(1.0 / r - 1);
+}
+
+double Random::randCauchy(double x0, double gamma) {
+    double x, y;
+    do {
+        x = rnd() * (-2) + 1;
+        y = rnd() * (-2) + 1;
+    } while ((x * x + y * y) > 1.0 || !y);
+    return x0 + gamma * x / y;
+}
+
+double Random::randStudentT(uint32_t k) {
+    if (k == 1) {
+        return randCauchy(0, 1);
+    }
+    return randGaussian() / sqrt(randChi2(k) / k);
+}

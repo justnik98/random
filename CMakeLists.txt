@@ -3,4 +3,4 @@ project(random)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(random main.cpp Random.cpp Random.h)
+add_executable(random main.cpp Random.cpp Random.h utils.h utils.ipp)
