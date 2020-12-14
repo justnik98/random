@@ -42,6 +42,8 @@ public:
     double randExp(double mean);
 
     double randChi2(uint32_t k);
+
+    double randLogistic(double mean, double sigma);
 };
 
 

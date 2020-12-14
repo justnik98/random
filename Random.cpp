@@ -73,3 +73,11 @@ double Random::randChi2(uint32_t k) {
     }
     return res;
 }
+
+double Random::randLogistic(double mean, double sigma) {
+    double r = rnd();
+    while (r == 1 || r == 0) {
+        r = rnd();
+    }
+    return mean + sigma * log(1.0 / r - 1);
+}

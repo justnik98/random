@@ -12,5 +12,6 @@ int main() {
     std::cout << r.randGaussian(mean, sigma) << std::endl;
     std::cout << r.randExp(mean) << std::endl;
     std::cout << r.randChi2(k) << std::endl;
+    std::cout << r.randLogistic(mean, sigma) << std::endl;
     return 0;
 }
