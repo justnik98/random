@@ -1,5 +1,7 @@
 #include <iostream>
+#include <vector>
 #include "Random.h"
+#include "utils.h"
 
 int main() {
     Random r;
@@ -17,5 +19,14 @@ int main() {
     std::cout << r.randLogistic(mean, sigma) << std::endl;
     std::cout << r.randCauchy(x0, gamma) << std::endl;
     std::cout << r.randStudentT(k) << std::endl;
+    uint32_t num = 100000;
+    std::vector<double> v;
+    for (int i = 0; i < num; ++i) {
+        v.push_back(r.randGaussian(0, 3));
+    }
+    std::cout << stat::min(v.begin(), v.end()) << std::endl;
+    std::cout << stat::max(v.begin(), v.end()) << std::endl;
+    std::cout << stat::sum(v.begin(), v.end()) << std::endl;
+    std::cout << stat::mean(v.begin(), v.end()) << std::endl;
     return 0;
 }

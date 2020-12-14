@@ -6,6 +6,7 @@
 #define RANDOM_RANDOM_H
 
 #include <iostream>
+#include "utils.h"
 
 class Random {
 private:
