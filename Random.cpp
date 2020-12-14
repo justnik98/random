@@ -63,3 +63,13 @@ double Random::randExp(double mean) {
     } while (!d);
     return -log(rnd()) / mean;
 }
+
+double Random::randChi2(uint32_t k) {
+    double res = 0;
+    double r;
+    for (size_t i = 0; i < k; ++i) {
+        r = randGaussian();
+        res += r * r;
+    }
+    return res;
+}
