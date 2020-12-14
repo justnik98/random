@@ -16,5 +16,6 @@ int main() {
     std::cout << r.randChi2(k) << std::endl;
     std::cout << r.randLogistic(mean, sigma) << std::endl;
     std::cout << r.randCauchy(x0, gamma) << std::endl;
+    std::cout << r.randStudentT(k) << std::endl;
     return 0;
 }

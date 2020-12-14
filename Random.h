@@ -46,6 +46,8 @@ public:
     double randLogistic(double mean, double sigma);
 
     double randCauchy(double x0, double gamma);
+
+    double randStudentT(uint32_t k);
 };
 
 

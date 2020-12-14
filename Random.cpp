@@ -90,3 +90,10 @@ double Random::randCauchy(double x0, double gamma) {
     } while ((x * x + y * y) > 1.0 || !y);
     return x0 + gamma * x / y;
 }
+
+double Random::randStudentT(uint32_t k) {
+    if (k == 1) {
+        return randCauchy(0, 1);
+    }
+    return randGaussian() / sqrt(randChi2(k) / k);
+}
