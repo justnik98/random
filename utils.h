@@ -29,13 +29,13 @@ namespace stat {
     }
 
     template<class It>
-    double variance(It first, It last){
-        auto sqr = [] (double res, double val){
-            return res += val*val;
+    double variance(It first, It last) {
+        auto sqr = [](double res, double val) {
+            return res += val * val;
         };
-        auto meansqr = std::accumulate(first,last,0.0,sqr)/(last-first);
+        auto meansqr = std::accumulate(first, last, 0.0, sqr) / (last - first);
         auto meanval = mean(first, last);
-        return meansqr - meanval*meanval;
+        return meansqr - meanval * meanval;
     }
 }
 #endif //RANDOM_UTILS_H
