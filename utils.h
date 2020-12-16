@@ -27,5 +27,15 @@ namespace stat {
     double mean(It first, It last) {
         return static_cast<double>(sum(first, last)) / (last - first);
     }
+
+    template<class It>
+    double variance(It first, It last){
+        auto sqr = [] (double res, double val){
+            return res += val*val;
+        };
+        auto meansqr = std::accumulate(first,last,0.0,sqr)/(last-first);
+        auto meanval = mean(first, last);
+        return meansqr - meanval*meanval;
+    }
 }
 #endif //RANDOM_UTILS_H
