@@ -19,6 +19,7 @@ int main() {
     std::cout << r.randLogistic(mean, sigma) << std::endl;
     std::cout << r.randCauchy(x0, gamma) << std::endl;
     std::cout << r.randStudentT(k) << std::endl;
+    std::cout << r.randRayleigh(sigma) << std::endl;
     uint32_t num = 100000000;
     std::vector<double> v;
     for (int i = 0; i < num; ++i) {

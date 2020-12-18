@@ -97,3 +97,7 @@ double Random::randStudentT(uint32_t k) {
     }
     return randGaussian() / sqrt(randChi2(k) / k);
 }
+
+double Random::randRayleigh(double sigma) {
+    return sqrt(pow(randGaussian(0, sigma), 2) + pow(randGaussian(0, sigma), 2));
+}
