@@ -49,6 +49,8 @@ public:
     double randCauchy(double x0, double gamma);
 
     double randStudentT(uint32_t k);
+
+    double randRayleigh(double sigma);
 };
 
 
