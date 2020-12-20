@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "Random.h"
-#include "utils.h"
+#include "src/Random.h"
+#include "src/utils.h"
 
 int main() {
     Random r;
