@@ -101,3 +101,14 @@ double Random::randStudentT(uint32_t k) {
 double Random::randRayleigh(double sigma) {
     return sqrt(pow(randGaussian(0, sigma), 2) + pow(randGaussian(0, sigma), 2));
 }
+
+uint32_t Random::randPoisson(double rate) {
+    double ex = exp(-rate);
+    uint32_t k = 0;
+    prod = rnd();
+    while (prod > ex) {
+        prod *= rnd();
+        ++k;
+    }
+    return k;
+}
