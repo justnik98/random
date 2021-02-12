@@ -61,7 +61,7 @@ double Random::randExp(double mean) {
     do {
         d = rnd();
     } while (!d);
-    return -log(rnd()) / mean;
+    return -log(d) / mean;
 }
 
 double Random::randChi2(uint32_t k) {
