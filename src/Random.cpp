@@ -61,7 +61,7 @@ double Random::randExp(double mean) {
     do {
         d = rnd();
     } while (!d);
-    return -log(rnd()) / mean;
+    return -log(d) / mean;
 }
 
 double Random::randChi2(uint32_t k) {
@@ -100,4 +100,15 @@ double Random::randStudentT(uint32_t k) {
 
 double Random::randRayleigh(double sigma) {
     return sqrt(pow(randGaussian(0, sigma), 2) + pow(randGaussian(0, sigma), 2));
+}
+
+uint32_t Random::randPoisson(double rate) {
+    double ex = exp(-rate);
+    uint32_t k = 0;
+    prod = rnd();
+    while (prod > ex) {
+        prod *= rnd();
+        ++k;
+    }
+    return k;
 }

@@ -51,6 +51,8 @@ public:
     double randStudentT(uint32_t k);
 
     double randRayleigh(double sigma);
+
+    uint32_t randPoisson(double rate);
 };
 
 
