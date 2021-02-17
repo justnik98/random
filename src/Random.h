@@ -25,7 +25,7 @@ private:
     constexpr static uint32_t l = 18;
     constexpr static uint32_t b = 0x9d2c5680;
     constexpr static uint32_t c = 0xefc60000;
-    uint32_t X[p];
+    uint32_t X[p]{};
 
 public:
     Random();
