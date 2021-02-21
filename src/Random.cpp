@@ -5,15 +5,15 @@
 #include "Random.h"
 
 Random::Random() {
-    for (size_t i = 0; i < p; ++i) {
-        X[i] = i;
+    for (unsigned int &j : X) {
+        j = std::rand();
     }
 }
 
 Random::Random(uint32_t seed) {
     srand(seed);
-    for (size_t i = 0; i < p; ++i) {
-        X[i] = std::rand();
+    for (unsigned int &j : X) {
+        j = std::rand();
     }
 }
 
@@ -60,26 +60,26 @@ double Random::randExp(double mean) {
     double d;
     do {
         d = rnd();
-    } while (!d);
+    } while (d == 0);
     return -log(d) / mean;
 }
 
 double Random::randChi2(uint32_t k) {
     double res = 0;
-    double r;
-    for (size_t i = 0; i < k; ++i) {
-        r = randGaussian();
-        res += r * r;
+    double r1;
+    for (size_t j = 0; j < k; ++j) {
+        r1 = randGaussian();
+        res += r1 * r1;
     }
     return res;
 }
 
 double Random::randLogistic(double mean, double sigma) {
-    double r = rnd();
-    while (r == 1 || r == 0) {
-        r = rnd();
+    double r1 = rnd();
+    while (r1 == 1 || r1 == 0) {
+        r1 = rnd();
     }
-    return mean + sigma * log(1.0 / r - 1);
+    return mean + sigma * log(1.0 / r1 - 1);
 }
 
 double Random::randCauchy(double x0, double gamma) {
@@ -87,7 +87,7 @@ double Random::randCauchy(double x0, double gamma) {
     do {
         x = rnd() * (-2) + 1;
         y = rnd() * (-2) + 1;
-    } while ((x * x + y * y) > 1.0 || !y);
+    } while ((x * x + y * y) > 1.0 || y == 0);
     return x0 + gamma * x / y;
 }
 
@@ -105,7 +105,7 @@ double Random::randRayleigh(double sigma) {
 uint32_t Random::randPoisson(double rate) {
     double ex = exp(-rate);
     uint32_t k = 0;
-    prod = rnd();
+    auto prod = rnd();
     while (prod > ex) {
         prod *= rnd();
         ++k;
